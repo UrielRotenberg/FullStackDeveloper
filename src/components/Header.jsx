@@ -16,8 +16,8 @@ const Header = () => {
 
   React.useEffect(() => {
     // מאזין לגלילה — כשמגיעים לאזור מסוים משנה אקטיבי
-    Events.scrollEvent.register("begin", () => {});
-    Events.scrollEvent.register("end", () => {});
+    Events.scrollEvent.register("begin", () => { });
+    Events.scrollEvent.register("end", () => { });
 
     return () => {
       Events.scrollEvent.remove("begin");
@@ -62,12 +62,9 @@ const Header = () => {
               component="img"
               src={`${import.meta.env.BASE_URL}ur-logo.png`}
               alt="UR Logo"
-              sx={{
-                height: 70,
-                width: "auto",
-                order: 2,
-              }}
+              sx={{ height: 70, width: "auto", order: 2 }}
             />
+
 
             {/* טקסט מקצועי מימין */}
             <Box
@@ -112,14 +109,14 @@ const Header = () => {
                   item === "בית"
                     ? "hero"
                     : item === "אודות"
-                    ? "about"
-                    : item === "ניסיון"
-                    ? "experience"
-                    : item === "השכלה"
-                    ? "education"
-                    : item === "מיומנויות"
-                    ? "skills"
-                    : "contact"
+                      ? "about"
+                      : item === "ניסיון"
+                        ? "experience"
+                        : item === "השכלה"
+                          ? "education"
+                          : item === "מיומנויות"
+                            ? "skills"
+                            : "contact"
                 }
                 smooth={true}
                 duration={700}

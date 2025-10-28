@@ -48,12 +48,7 @@ const Hero = () => {
                     <img
                         src={`${import.meta.env.BASE_URL}ur-logo.png`}
                         alt="UR Logo"
-                        style={{
-                            width: "100%",
-                            height: "100%",
-                            objectFit: "contain",
-                            filter: "drop-shadow(0 6px 10px rgba(0,0,0,0.2))",
-                        }}
+                        style={{ width: "100%", height: "100%", objectFit: "contain" }}
                     />
                 </Box>
             </motion.div>
