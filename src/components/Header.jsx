@@ -60,7 +60,7 @@ const Header = () => {
             {/* לוגו משמאל */}
             <Box
               component="img"
-              src="/ur-logo.png"
+              src={`${import.meta.env.BASE_URL}ur-logo.png`}
               alt="UR Logo"
               sx={{
                 height: 70,

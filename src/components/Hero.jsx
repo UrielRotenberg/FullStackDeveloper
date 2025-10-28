@@ -46,7 +46,7 @@ const Hero = () => {
                     }}
                 >
                     <img
-                        src="/ur-logo.png"
+                        src={`${import.meta.env.BASE_URL}ur-logo.png`}
                         alt="UR Logo"
                         style={{
                             width: "100%",
@@ -176,7 +176,7 @@ const Hero = () => {
                 {/* הורד קורות חיים */}
                 <Button
                     variant="outlined"
-                    href="/קורות חיים - אוריאל רוטנברג.pdf"
+                    href={`${import.meta.env.BASE_URL}קורות חיים - אוריאל רוטנברג.pdf`}
                     download="קורות חיים - אוריאל רוטנברג.pdf"
                     startIcon={<DownloadIcon />}
                     sx={{
