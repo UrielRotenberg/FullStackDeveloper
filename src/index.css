@@ -1,0 +1,36 @@
+:root {
+  font-family: Heebo, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #333;
+  background-color: #F7F9FB; /* רקע בהיר מקצועי */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* קישורים */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ביטול עיצוב ברירת מחדל של כפתורים */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* מניעת Overflow אופקי (בגלל RTL ו-MUI לפעמים) */
+body {
+  overflow-x: hidden;
+  background-color: #F7F9FB;
+}
