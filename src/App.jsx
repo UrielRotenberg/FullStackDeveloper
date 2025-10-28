@@ -18,7 +18,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <ParallaxProvider>
-        <Router>
+        <Router basename={import.meta.env.MODE === "production" ? "/FullStackDeveloper" : "/"}>
           <Box dir="rtl" sx={{ overflowX: "hidden" }}>
             <Routes>
               <Route
