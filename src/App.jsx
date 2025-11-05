@@ -11,7 +11,6 @@ import Education from "./components/Education";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import ContactFormPage from "./pages/ContactFormPage";
 
 function App() {
   return (
@@ -38,7 +37,6 @@ function App() {
                   </>
                 }
               />
-              <Route path="/contact" element={<ContactFormPage />} />
             </Routes>
           </Box>
         </Router>

@@ -1,278 +1,242 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Container,
-  Grid,
-  IconButton,
-  Card,
-  useTheme,
-} from "@mui/material";
-import EmailIcon from "@mui/icons-material/Email";
-import PhoneIcon from "@mui/icons-material/Phone";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { Box, Typography, Container, Card, Grid, IconButton } from "@mui/material";
+import { Mail, Phone, MapPin, MessageCircle, GraduationCap, Code, ExternalLink } from 'lucide-react';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import RevealAnimation from "./RevealAnimation";
 
-// 🔹 רכיב עזר לכרטיס פרטי קשר
-const ContactDetailCard = ({ icon, title, value, href, isBlue = false }) => {
-  const theme = useTheme();
-  const Content = (
-    <Box sx={{ display: "flex", alignItems: "center", width: "100%" }}>
+const ContactDetailCard = ({ icon: Icon, title, detail, link, iconColor }) => {
+  return (
+    <Card
+      component="a"
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      sx={{
+        p: 3,
+        borderRadius: '1rem',
+        boxShadow: "0 5px 15px rgba(0,0,0,0.05)",
+        transition: "0.3s",
+        border: '1px solid #f3f4f6',
+        textAlign: 'center',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+        cursor: 'pointer',
+        textDecoration: 'none',
+        '&:hover': {
+          boxShadow: "0 10px 20px rgba(0,0,0,0.08)",
+          transform: 'translateY(-2px)',
+        }
+      }}
+    >
       <Box
         sx={{
-          color: isBlue ? "secondary.light" : "secondary.main",
-          mr: 2,
-          fontSize: 30,
-          display: "flex",
-          alignItems: "center",
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          width: 56,
+          height: 56,
+          borderRadius: '50%',
+          backgroundColor: iconColor,
+          mb: 2,
+          color: 'white',
+          boxShadow: "0 4px 8px rgba(0,0,0,0.2)"
         }}
       >
-        {icon}
+        <Icon size={24} strokeWidth={2.5} />
       </Box>
-      <Box sx={{ flexGrow: 1 }}>
-        <Typography
-          variant="caption"
-          sx={{
-            mb: 0.5,
-            color: isBlue ? "rgba(255,255,255,0.7)" : "text.secondary",
-          }}
-        >
-          {title}
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            fontWeight: "bold",
-            color: isBlue ? "white" : "text.primary",
-            overflow: "hidden",
-            textOverflow: "ellipsis",
-          }}
-        >
-          {value}
-        </Typography>
+
+      <Typography variant="body1" sx={{ fontWeight: 700, mb: 0.5, color: '#111827' }}>
+        {title}
+      </Typography>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+          color: iconColor,
+          fontSize: '0.8rem',
+          fontWeight: 600,
+          mt: 1,
+          direction: title === 'אימייל' || title === 'טלפון' || title === 'וואטסאפ' ? 'ltr' : 'rtl',
+        }}
+      >
+        {detail}
       </Box>
-    </Box>
-  );
-
-  const openNewTab = href && (href.startsWith("http") || href.startsWith("https"));
-
-  const cardBase = {
-    display: "flex",
-    p: 3,
-    borderRadius: 2,
-    textDecoration: "none",
-    transition: "0.3s",
-    cursor: href ? "pointer" : "default",
-    "&:hover": {
-      transform: href ? "translateY(-3px)" : "none",
-      boxShadow: href ? 6 : 3,
-    },
-  };
-
-  return isBlue ? (
-    <Box
-      sx={{
-        ...cardBase,
-        backgroundColor: "rgba(255,255,255,0.1)",
-        color: "white",
-        border: "1px solid rgba(255,255,255,0.15)",
-        width: "100%",
-      }}
-      component={href ? "a" : "div"}
-      href={href || undefined}
-      target={openNewTab ? "_blank" : undefined}
-      rel={openNewTab ? "noopener noreferrer" : undefined}
-    >
-      {Content}
-    </Box>
-  ) : (
-    <Card
-      sx={{
-        ...cardBase,
-        boxShadow: 3,
-        borderLeft: `4px solid ${theme.palette.secondary.main}`,
-        position: "relative",
-        zIndex: 3,
-        backgroundColor: "white",
-        overflow: "visible",
-      }}
-      component={href ? "a" : "div"}
-      href={href || undefined}
-      target={openNewTab ? "_blank" : undefined}
-      rel={openNewTab ? "noopener noreferrer" : undefined}
-    >
-      {Content}
     </Card>
   );
 };
 
-const Contact = () => {
-  const contactDetails = [
+const ContactPage = () => {
+
+  const contactData = [
     {
-      icon: <PhoneIcon />,
-      title: "טלפון",
-      value: "053-430-5167",
-      href: "tel:0534305167",
+      icon: MapPin,
+      title: "כתובת ומיקום",
+      detail: "פתח תקווה, ישראל",
+      link: "https://www.google.com/maps?q=Petah+Tikva,+Israel",
+      iconColor: "#EA580C",
     },
     {
-      icon: <WhatsAppIcon />,
+      icon: MessageCircle,
       title: "וואטסאפ",
-      value: "053-430-5167",
-      href: "https://wa.me/972534305167",
+      detail: "053-430-5167",
+      link: "https://wa.me/972534305167",
+      iconColor: "#22C55E",
     },
     {
-      icon: <EmailIcon />,
+      icon: Phone,
+      title: "טלפון",
+      detail: "053-430-5167",
+      link: "tel:0534305167",
+      iconColor: "#16A34A",
+    },
+    {
+      icon: Mail,
       title: "אימייל",
-      value: "uri314el@gmail.com",
-      href: "/contact",
-    },
-    {
-      icon: <LocationOnIcon />,
-      title: "מיקום",
-      value: "פתח תקווה, ישראל",
-      href: "https://www.google.com/maps?q=Petah+Tikva,+Israel",
+      detail: "uri314el@gmail.com",
+      link: "https://mail.google.com/mail/?view=cm&fs=1&to=uri314el@gmail.com",
+      iconColor: "#2563EB",
     },
   ];
 
+  const socialLinks = [
+    {
+      icon: <LinkedInIcon fontSize="large" />,
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/uriel-rotenberg-0a08552b6",
+      color: "#0A66C2"
+    },
+    {
+      icon: <GitHubIcon fontSize="large" />,
+      label: "GitHub",
+      href: "https://github.com/UrielRotenberg",
+      color: "#212121"
+    },
+  ];
+
+
   return (
     <Box
-      component="section"
-      id="contact"
       sx={{
+        backgroundColor: "#f9fafb",
         py: { xs: 8, md: 12 },
-        background: "#FFFFFFCC",
-        position: "relative",
-        overflow: "visible",
+        direction: 'rtl',
+        minHeight: '100vh',
+        fontFamily: 'Inter, sans-serif'
       }}
     >
       <Container maxWidth="lg">
-        <RevealAnimation>
-          <Typography
-            variant="h4"
-            align="center"
-            sx={{ fontWeight: "bold", mb: 1 }}
-          >
-            צור קשר <Box component="span" sx={{ color: "secondary.main" }}>📧</Box>
-          </Typography>
-          <Typography
-            variant="subtitle1"
-            align="center"
-            color="text.secondary"
-            sx={{ mb: 6 }}
-          >
-            מוזמנים ליצור קשר לשיתופי פעולה או הזדמנויות חדשות.
-          </Typography>
-        </RevealAnimation>
-
-        <Grid
-          container
-          spacing={5}
-          justifyContent="center"
-          alignItems="stretch"
-          sx={{ overflow: "visible" }}
-        >
-          {/* 🟦 כרטיס כחול - בואו נדבר */}
-          <Grid item xs={12} md={5}>
-            <RevealAnimation delay={0.1}>
-              <Card
+        <Box sx={{ textAlign: "center", mb: 8 }}>
+          <RevealAnimation>
+            <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
+              <GraduationCap size={32} color="#1D4ED8" strokeWidth={2.2} />
+              <Typography
+                component="h2"
                 sx={{
-                  p: { xs: 3, md: 5 },
-                  minHeight: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  background: "linear-gradient(145deg, #1976D2, #0E1F40)",
-                  color: "white",
-                  borderRadius: 3,
-                  boxShadow: 10,
-                  position: "relative",
-                  zIndex: 1,
-                  overflow: "visible",
+                  fontFamily:
+                    "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
+                  fontWeight: 700,
+                  pb: "9px",
+                  fontSize: { xs: "2.5rem", md: "3rem" },
+                  color: "#0F172A",
+                  lineHeight: 1.2,
                 }}
               >
-                <Typography variant="h5" sx={{ mb: 2, fontWeight: "bold" }}>
-                  בואו נדבר!
-                </Typography>
-                <Typography variant="body1" sx={{ mb: 4 }}>
-                  אני תמיד פתוח להצעות מעניינות, פרויקטים ייחודיים ושיתופי פעולה.
-                </Typography>
+                השכלה
+              </Typography>
+            </Box>
+            <Box
+              sx={{
+                borderBottom: "4px solid #1D4ED8",
+                width: 90,
+                mx: "auto",
+                mb: 6,
+                borderRadius: "2px",
+              }}
+            />
+          </RevealAnimation>
+          <Typography
+            variant="h6"
+            sx={{ mt: 2, color: '#4b5563', fontWeight: 500, fontSize: { xs: '1rem', md: '1.25rem' } }}
+          >
+            מוזמנים ליצור קשר לשיחה על הזדמנויות ושיתופי פעולה
+          </Typography>
+        </Box>
 
-                <Grid
-                  container
-                  spacing={2}
-                  sx={{
-                    display: { xs: "flex", md: "none" },
-                    flexWrap: "nowrap",
-                    overflowX: "auto",
-                    pb: 1,
-                  }}
-                >
-                  {contactDetails.map((item, index) => (
-                    <Grid item key={index} sx={{ minWidth: 180 }}>
-                      <ContactDetailCard {...item} isBlue />
-                    </Grid>
-                  ))}
-                </Grid>
-              </Card>
-            </RevealAnimation>
-          </Grid>
-
-          {/* 🟩 כרטיסים לבנים - דסקטופ */}
-          <Grid item xs={12} md={5} sx={{ display: { xs: "none", md: "block" } }}>
-            <Grid container spacing={3}>
-              {contactDetails.map((item, index) => (
-                <Grid item xs={12} key={index}>
-                  <RevealAnimation delay={0.2 + index * 0.1}>
-                    <ContactDetailCard {...item} />
-                  </RevealAnimation>
-                </Grid>
-              ))}
+        <Grid container spacing={4} justifyContent="center">
+          {[...contactData].reverse().map((item) => (
+            <Grid item xs={12} sm={6} md={3} key={item.title}>
+              <ContactDetailCard {...item} />
             </Grid>
-          </Grid>
+          ))}
         </Grid>
 
-        {/* רשתות חברתיות */}
-        <RevealAnimation delay={0.6}>
+        <Box
+          sx={{
+            mt: 8,
+            p: { xs: 4, md: 6 },
+            background: "linear-gradient(90deg, #1D4ED8, #3B82F6)",
+            borderRadius: '1.5rem',
+            boxShadow: "0 10px 30px rgba(29, 78, 216, 0.4)",
+            color: "white",
+            textAlign: "center",
+            maxWidth: '90%',
+            mx: "auto",
+          }}
+        >
+          <Typography variant="h5" sx={{ fontWeight: 700, mb: 1.5 }}>
+            בואו נדבר!
+          </Typography>
+          <Typography variant="body1" sx={{ opacity: 0.9 }}>
+            אני תמיד מעוניין בהזדמנויות חדשות, פרויקטים מעניינים ושיתופי פעולה. אשמח לשמוע ממך ולדון כיצד אוכל לתרום לארגון שלך.
+          </Typography>
+        </Box>
+
+        <Box sx={{ mt: 10 }}>
           <Typography
             variant="body2"
             align="center"
-            sx={{ mt: 7, mb: 2, fontWeight: "bold", color: "text.secondary" }}
+            sx={{ mb: 3, fontWeight: "bold", color: "text.secondary", fontSize: '1rem' }}
           >
             ניתן למצוא אותי גם ב:
           </Typography>
           <Box display="flex" justifyContent="center" gap={3}>
-            <IconButton
-              aria-label="LinkedIn"
-              href="https://www.linkedin.com/in/uriel-rotenberg-0a08552b6"
-              target="_blank"
-              sx={{
-                color: "#0A66C2",
-                border: "1px solid #0A66C2",
-                "&:hover": { backgroundColor: "rgba(10, 102, 194, 0.1)" },
-              }}
-            >
-              <LinkedInIcon fontSize="large" />
-            </IconButton>
-            <IconButton
-              aria-label="GitHub"
-              href="https://github.com/UrielRotenberg"
-              target="_blank"
-              sx={{
-                color: "#212121",
-                border: "1px solid #212121",
-                "&:hover": { backgroundColor: "rgba(33, 33, 33, 0.1)" },
-              }}
-            >
-              <GitHubIcon fontSize="large" />
-            </IconButton>
+            {socialLinks.map((item) => (
+              <IconButton
+                key={item.label}
+                aria-label={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  color: "white",
+                  backgroundColor: item.color,
+                  borderRadius: '50%',
+                  boxShadow: 5,
+                  padding: 2,
+                  width: 56,
+                  height: 56,
+                  transition: "0.3s",
+                  "&:hover": {
+                    backgroundColor: item.color,
+                    opacity: 0.9,
+                    transform: "scale(1.1)",
+                  },
+                }}
+              >
+                {item.icon}
+              </IconButton>
+            ))}
           </Box>
-        </RevealAnimation>
+        </Box>
+
       </Container>
     </Box>
   );
 };
 
-export default Contact;
+export default ContactPage;

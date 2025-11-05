@@ -5,159 +5,240 @@ import {
   Grid,
   Container,
   Card,
-  Chip,
 } from "@mui/material";
-import CodeIcon from "@mui/icons-material/Code";
-import StorageIcon from "@mui/icons-material/Storage";
-import DesktopWindowsIcon from "@mui/icons-material/DesktopWindows";
-import BuildIcon from "@mui/icons-material/Build";
+import { Layers } from 'lucide-react';
+import { Code } from 'lucide-react';
+import { Database } from 'lucide-react';
+import { Wrench } from 'lucide-react';
 import RevealAnimation from "./RevealAnimation";
 
-const SkillCategoryCard = ({
-  icon,
-  title,
-  skills,
-  iconColor,
-  chipBg,
-  chipColor,
-  delay,
-}) => (
-  <RevealAnimation delay={delay} trigger={0.1}>
-    <Card
-      sx={{
-        height: "100%",
-        boxShadow: 4,
-        borderRadius: 3,
-        p: 3,
-        pt: 6,
-        position: "relative",
-        transition: "0.3s",
-        "&:hover": { transform: "translateY(-5px)", boxShadow: 8 },
-      }}
-    >
-      <Box
+const SkillCategoryCard = ({ icon, title, skills, iconColor, chipBg, chipColor, delay }) => {
+  const fixedWidth = 242;
+  const fixedHeight = 56;
+
+  return (
+    <RevealAnimation delay={delay} trigger={0.1}>
+      <Card
         sx={{
-          position: "absolute",
-          top: -25,
-          right: 20,
-          width: 55,
-          height: 55,
-          backgroundColor: iconColor,
-          borderRadius: 2,
+          width: 560,
+          height: 450,
+          boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+          borderRadius: 4,
+          p: 4,
+          pt: 6,
+          backgroundColor: "#fff",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
-          color: "white",
-          boxShadow: 3,
+          transition: "0.25s ease",
+          '&:hover': {
+            transform: "translateY(-6px)",
+            boxShadow: "0 12px 24px rgba(0,0,0,0.14)",
+          },
         }}
       >
-        {icon}
-      </Box>
 
-      <Typography variant="h6" sx={{ fontWeight: "bold", color: "primary.main", mb: 3 }}>
-        {title}
-      </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            width: "100%",
+            mb: 3,
+            gap: 2,
+          }}
+        >
+          <Box
+            sx={{
+              width: 64,
+              height: 64,
+              padding: "16px",
+              backgroundColor: iconColor,
+              borderRadius: 2,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "white",
+              fontSize: 28,
+              boxShadow: 2,
+            }}
+          >
+            {icon}
+          </Box>
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: 700,
+              fontSize: "24px",
+              color: "#0F172A",
+              textAlign: "right",
+            }}
+          >
+            {title}
+          </Typography>
+        </Box>
 
-      <Grid container spacing={1.5}>
-        {skills.map((skill) => (
-          <Grid item xs={6} key={skill}>
-            <Chip
-              label={skill}
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: "repeat(2, 1fr)",
+            gap: 2,
+            width: "100%",
+            maxWidth: "100%",
+          }}
+        >
+          {skills.map((skill) => (
+            <Box
+              key={skill}
               sx={{
-                width: "100%",
+                width: fixedWidth,
+                height: fixedHeight,
                 backgroundColor: chipBg,
-                color: chipColor,
-                fontWeight: "bold",
-                py: 1.2,
-                height: "auto",
+                color: "#334155",
+                borderRadius: 2,
+                fontWeight: 600,
+                fontSize: "0.95rem",
+                textAlign: "center",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
                 boxShadow: 1,
                 transition: "0.2s",
-                "&:hover": { boxShadow: 3 },
+                padding: "0 8px",
+                '&:hover': {
+                  boxShadow: 3,
+                  transform: "translateY(-2px)",
+                },
               }}
-            />
-          </Grid>
-        ))}
-      </Grid>
-    </Card>
-  </RevealAnimation>
-);
+            >
+              {skill}
+            </Box>
+          ))}
+        </Box>
+      </Card>
+    </RevealAnimation>
+  );
+};
 
 const Skills = () => {
   const skillData = [
     {
-      icon: <DesktopWindowsIcon />,
+      icon: <Layers sx={{ width: 32, height: 32 }} />,
       title: "Frontend",
       skills: ["React", "JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", "MUI", "Axios"],
-      iconColor: "#1976D2",
-      chipBg: "rgba(25, 118, 210, 0.1)",
-      chipColor: "#1976D2",
+      iconColor: "#2563EB",
+      chipBg: "#EFF6FF",
+      chipColor: "#2563EB",
       delay: 0.1,
     },
     {
-      icon: <CodeIcon />,
+      icon: <Code sx={{ width: 32, height: 32 }} />,
       title: "Backend",
-      skills: ["C#", "ASP.NET", "Dapper", "REST API", "Node.js", "Express"],
-      iconColor: "#9C27B0",
-      chipBg: "rgba(156, 39, 176, 0.1)",
-      chipColor: "#9C27B0",
+      skills: ["#C", "ASP.NET", "Dapper", "REST API", "Node.js", "Express"],
+      iconColor: "#7E22CE",
+      chipBg: "#FAF5FF",
+      chipColor: "#7E22CE",
       delay: 0.2,
     },
     {
-      icon: <StorageIcon />,
+      icon: <Database sx={{ width: 32, height: 32 }} />,
       title: "Database",
       skills: ["SQL Server", "MongoDB", "Stored Procedures", "Query Optimization"],
-      iconColor: "#4CAF50",
-      chipBg: "rgba(76, 175, 80, 0.1)",
-      chipColor: "#4CAF50",
+      iconColor: "#16A34A",
+      chipBg: "#F0FDF4",
+      chipColor: "#166534",
       delay: 0.3,
     },
     {
-      icon: <BuildIcon />,
+      icon: <Wrench sx={{ width: 32, height: 32 }} />,
       title: "Tools & Infrastructure",
       skills: ["Git", "TFS", "Visual Studio", "VS Code", "ExcelJS", "Postman"],
-      iconColor: "#FF9800",
-      chipBg: "rgba(255, 152, 0, 0.1)",
-      chipColor: "#FF9800",
+      iconColor: "#EA580C",
+      chipBg: "#FFF7ED",
+      chipColor: "#EA580C",
       delay: 0.4,
     },
   ];
 
   return (
-    <Box component="section" id="skills" sx={{ py: { xs: 8, md: 12 }, backgroundColor: "#EFF6FF", }}>
-      <Container maxWidth="lg">
+    <Box id="skills" sx={{ backgroundColor: "#EFF6FF", py: { xs: 10, md: 14 } }}>
+      <Container maxWidth="xl" sx={{ maxWidth: "1400px !important" }}>
         <RevealAnimation>
-          <Typography variant="h4" align="center" sx={{ fontWeight: "bold", mb: 1 }}>
-            מיומנויות טכניות <Box component="span" sx={{ color: "secondary.main" }}>⌨️</Box>
-          </Typography>
-          <Box sx={{ borderBottom: "4px solid", borderColor: "secondary.main", width: 80, mx: "auto", mb: 6 }} />
+          <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
+            <Code size={32} color="#1D4ED8" strokeWidth={2.2} />
+            <Typography
+              component="h2"
+              sx={{
+                fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
+                fontWeight: 700,
+                pb: "9px",
+                fontSize: { xs: "2.5rem", md: "3rem" },
+                color: "#0F172A",
+                lineHeight: 1.2,
+              }}
+            >
+              מיומנויות טכניות
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              borderBottom: "4px solid #1D4ED8",
+              width: 90,
+              mx: "auto",
+              mb: 6,
+              borderRadius: "2px",
+            }}
+          />
         </RevealAnimation>
 
-        <Grid container spacing={4}>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 4,
+            justifyContent: "center",
+          }}
+        >
           {skillData.map((item) => (
-            <Grid item xs={12} sm={6} md={3} key={item.title}>
-              <SkillCategoryCard {...item} />
-            </Grid>
+            <SkillCategoryCard key={item.title} {...item} />
           ))}
-        </Grid>
+        </Box>
 
-        {/* בלוק כחול תחתון */}
         <RevealAnimation delay={0.6} trigger={0.1}>
           <Box
             sx={{
-              mt: 7,
-              p: { xs: 3, md: 4 },
-              background: "linear-gradient(145deg, #1976D2, #0E1F40)",
-              borderRadius: 3,
-              boxShadow: 6,
+              mt: 10,
+              px: 4,
+              py: 4,
+              width: 1140,
+              mx: "auto",
+              background: "linear-gradient(135deg, #1d4ed8, #3b82f6)",
+              borderRadius: 4,
+              boxShadow: 8,
               color: "white",
               textAlign: "center",
             }}
           >
-            <Typography variant="h6" sx={{ fontWeight: "bold", mb: 1 }}>
+            <Typography
+              sx={{
+                color: "#FFFFFF",
+                fontFamily: "ui-sans-serif, system-ui, sans-serif",
+                fontWeight: "bold",
+                fontSize: "30px",
+                mb: 2,
+              }}
+            >
               תכונות נוספות
             </Typography>
-            <Typography variant="body1" sx={{ maxWidth: 800, mx: "auto" }}>
-              תקשורת בין-אישית מצוינת, חשיבה אנליטית מפותחת, יכולת עבודה עצמאית ובצוות, וראייה מערכתית חדה.
+            <Typography
+              sx={{
+                color: "#FFFFFF",
+                fontSize: "18px",
+                fontFamily: "ui-sans-serif, system-ui, sans-serif",
+                lineHeight: 1.7,
+              }}
+            >
+              בעל תקשורת בין-אישית מצוינת וחשיבה אנליטית מפותחת. יכולת גבוהה בעבודה עצמאית ובצוות, עם ראייה מערכתית ותשומת לב לפרטים.
             </Typography>
           </Box>
         </RevealAnimation>

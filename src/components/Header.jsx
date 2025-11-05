@@ -120,7 +120,7 @@ const Header = () => {
                 }
                 smooth={true}
                 duration={700}
-                offset={-80}
+                offset={-150}
                 spy={true} // ✅ מאפשר לזהות את הקטע הפעיל בגלילה
                 onSetActive={() => setActive(item)} // ✅ משנה מצב כשמגיעים אליו
               >
@@ -139,10 +139,12 @@ const Header = () => {
                       bottom: 0,
                       left: 0,
                       right: 0,
-                      height: active === item ? "3px" : "0px",
+                      height: "3px", // גובה קבוע
                       backgroundColor: "#1976D2",
                       borderRadius: "2px",
-                      transition: "0.3s ease",
+                      transition: "transform 0.8s ease",
+                      transform: active === item ? "scaleX(1)" : "scaleX(0)", // ✅ מעבר חלק
+                      transformOrigin: "center",
                     },
                   }}
                 >

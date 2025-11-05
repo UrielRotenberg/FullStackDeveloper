@@ -159,7 +159,7 @@ const Hero = () => {
                             color: "#FFFFFF",
                             fontSize: "18px",
                             padding: "12px 32px",
-                            borderRadius: "8px",
+                            borderRadius: "30px",
                             gap: "8px",
                             "&:hover": { backgroundColor: "#1E40AF" },
                         }}
@@ -182,8 +182,7 @@ const Hero = () => {
                         fontWeight: 500,
                         textTransform: "none",
                         padding: "12px 32px",
-                        border: "1.5px solid #1D4ED8",
-                        borderRadius: "8px",
+                        borderRadius: "30px",
                         display: "inline-flex",
                         alignItems: "center",
                         justifyContent: "center",
