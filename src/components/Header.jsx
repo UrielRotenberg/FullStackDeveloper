@@ -69,7 +69,6 @@ const Header = () => {
             sx={{
               display: "flex",
               alignItems: "center",
-              gap: 1.5,
               cursor: "pointer",
               direction: "rtl",
             }}
@@ -172,7 +171,7 @@ const Header = () => {
               </IconButton>
 
               <Drawer
-                anchor="right"
+                anchor="left"
                 open={drawerOpen}
                 onClose={() => setDrawerOpen(false)}
               >
