@@ -1,36 +1,20 @@
 import React from "react";
-import {
-    Box,
-    Typography,
-    Container,
-    Card,
-    CardContent,
-    Chip,
-    List,
-    ListItem,
-    ListItemIcon,
-    ListItemText,
-    Divider,
-} from "@mui/material";
+import { Box, Typography, Container, Card, CardContent, List, ListItem, Divider, } from "@mui/material";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import RevealAnimation from "./RevealAnimation";
-import { Check } from "lucide-react";
 import { Briefcase } from "lucide-react";
-
 
 const Experience = () => {
     const experience = {
         company: "שירות בתי הסוהר - יחידת הפיתוח",
         role: "מפתח פול סטאק ובן שירות טכנולוגי",
-        // years: "2024 - 2026",
-        // location: "ישראל",
         details: [
-            "פיתוח ותחזוקת מערכות פנים - ארגוניות מורכבות בשירות בתי הסוהר.",
-            "פיתוח צד לקוח ב־React עם התממשקות ל־API מבוססי .NET.",
-            "פיתוח צד שרת ב־#C, בניית Stored Procedures מורכבות מול SQL Server.",
-            "שיפור חוויית המשתמש, כולל פיתוח רכיבי UI דינמיים, ניהול טבלאות אסינכרוניות ופתרונות חכמים.",
+            "פיתוח ותחזוקת מערכות פנים - ארגוניוות מורכבות בשירות בתי הסוהר.",
+            "פיתוח צד לקוח ב‏React עם התממשקות ל‏API מבוססי ‏.NET.",
+            "פיתוח צד שרת בגישת #C, בניית Stored Procedures מורכבות מול SQL Server.",
+            "שיפור חוויית המשתמש, כלל פיתוח רכיבי UI דינמיים, ניהול טבלאות אסינכרוניות ופתרונות חכמות.",
             "עבודה צמודה עם צוותי פיתוח וניהול תוך הקפדה על איכות, דיוק ועמידה בלוחות זמנים."
         ]
     };
@@ -39,21 +23,16 @@ const Experience = () => {
         <Box
             component="section"
             id="experience"
-            sx={{
-                py: { xs: 8, md: 12 },
-                backgroundColor: "#EFF6FF",
-            }}
+            sx={{ py: { xs: 8, md: 12 }, backgroundColor: "#EFF6FF" }}
         >
             <Container maxWidth="lg">
-                {/* 🔹 כותרת עליונה */}
                 <RevealAnimation>
                     <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
                         <Briefcase size={32} color="#1D4ED8" strokeWidth={2.2} />
                         <Typography
                             component="h2"
                             sx={{
-                                fontFamily:
-                                    "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
+                                fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
                                 fontWeight: 700,
                                 pb: "9px",
                                 fontSize: { xs: "2.5rem", md: "3rem" },
@@ -75,7 +54,6 @@ const Experience = () => {
                     />
                 </RevealAnimation>
 
-                {/* 🔹 כרטיס חוויה */}
                 <RevealAnimation delay={0.2}>
                     <Card
                         sx={{
@@ -91,7 +69,6 @@ const Experience = () => {
                                 transform: "translateY(-6px)",
                                 boxShadow: "0 12px 30px rgba(0,0,0,0.12)",
                             },
-                            // פס כחול בצד שמאל
                             "&::before": {
                                 content: '""',
                                 position: "absolute",
@@ -106,25 +83,22 @@ const Experience = () => {
                         }}
                     >
                         <CardContent sx={{ direction: "rtl" }}>
-                            {/* כותרת החברה */}
                             <Typography
                                 variant="h5"
                                 sx={{
                                     fontWeight: 700,
                                     color: "#0F172A",
-                                    fontWeight: "bold",
-                                    fontSize: "30px",
+                                    fontSize: { xs: "24px", md: "30px" },
                                     mb: 0.8,
                                 }}
                             >
                                 {experience.company}
                             </Typography>
 
-                            {/* תפקיד */}
                             <Typography
                                 sx={{
                                     color: "#1D4ED8",
-                                    fontSize: "20px",
+                                    fontSize: { xs: "18px", md: "20px" },
                                     fontWeight: 600,
                                     fontFamily: "ui-sans-serif, system-ui, sans-serif",
                                     mb: 2,
@@ -133,14 +107,13 @@ const Experience = () => {
                                 {experience.role}
                             </Typography>
 
-
-                            {/* תגים */}
                             <Box
                                 sx={{
                                     display: "flex",
-                                    alignItems: "center",
+                                    flexDirection: { xs: "column", sm: "row" },
+                                    alignItems: { xs: "flex-start", sm: "center" },
                                     justifyContent: "flex-start",
-                                    gap: 3,
+                                    gap: 2,
                                     color: "#475569",
                                     fontSize: "16px",
                                     mb: 3,
@@ -148,29 +121,32 @@ const Experience = () => {
                             >
                                 <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
                                     <CalendarTodayIcon sx={{ fontSize: 20, color: "#475569" }} />
-                                    <Typography sx={{ fontSize: "16px", color: "#475569" }}>2024 - הווה</Typography>
+                                    <Typography sx={{ fontSize: "16px", color: "#475569" }}>
+                                        2024 - הווה
+                                    </Typography>
                                 </Box>
 
                                 <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
                                     <LocationOnIcon sx={{ fontSize: 20, color: "#475569" }} />
-                                    <Typography sx={{ fontSize: "16px", color: "#475569" }}>ישראל</Typography>
+                                    <Typography sx={{ fontSize: "16px", color: "#475569" }}>
+                                        ישראל
+                                    </Typography>
                                 </Box>
                             </Box>
 
                             <Divider sx={{ mb: 3, borderColor: "#E2E8F0" }} />
 
-                            {/* תתי נושאים */}
                             <Typography
                                 component="h4"
                                 sx={{
                                     color: "#0F172A",
-                                    fontSize: "20px",
+                                    fontSize: { xs: "18px", md: "20px" },
                                     fontWeight: 700,
                                     fontFamily: "ui-sans-serif, system-ui, sans-serif",
                                     mb: 3,
                                 }}
                             >
-                                תחומי אחריות עיקריים:
+                                תחומי אחראיות עיקריים:
                             </Typography>
 
                             <List>
@@ -188,18 +164,18 @@ const Experience = () => {
                                     >
                                         <Box
                                             sx={{
-                                                backgroundColor: "#DBEAFE", // תכלת רקע
-                                                color: "#1D4ED8", // כחול כהה לאייקון
+                                                backgroundColor: "#DBEAFE",
+                                                color: "#1D4ED8",
                                                 borderRadius: "50%",
-                                                p: "6px", // כמו padding-1.5 בטיילווינד (12px)
+                                                p: "6px",
                                                 mt: "4px",
                                                 display: "flex",
                                                 alignItems: "center",
                                                 justifyContent: "center",
                                                 transition: "all 0.3s ease",
                                                 "&:hover": {
-                                                    backgroundColor: "#1D4ED8", // כחול כהה
-                                                    color: "#FFFFFF", // וי נהיה לבן
+                                                    backgroundColor: "#1D4ED8",
+                                                    color: "#FFFFFF",
                                                 },
                                             }}
                                         >
@@ -209,7 +185,7 @@ const Experience = () => {
                                         <Typography
                                             sx={{
                                                 color: "#334155",
-                                                fontSize: "18px",
+                                                fontSize: { xs: "16px", md: "18px" },
                                                 fontFamily: "ui-sans-serif, system-ui, sans-serif",
                                                 lineHeight: 1.7,
                                                 flex: 1,

@@ -1,27 +1,14 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  Grid,
-  Container,
-  Card,
-} from "@mui/material";
-import { Layers } from 'lucide-react';
-import { Code } from 'lucide-react';
-import { Database } from 'lucide-react';
-import { Wrench } from 'lucide-react';
+import { Box, Typography, Container, Card } from "@mui/material";
+import { Layers, Code, Database, Wrench } from 'lucide-react';
 import RevealAnimation from "./RevealAnimation";
 
-const SkillCategoryCard = ({ icon, title, skills, iconColor, chipBg, chipColor, delay }) => {
-  const fixedWidth = 242;
-  const fixedHeight = 56;
-
+const SkillCategoryCard = ({ icon, title, skills, iconColor, chipBg, delay }) => {
   return (
     <RevealAnimation delay={delay} trigger={0.1}>
       <Card
         sx={{
-          width: 560,
-          height: 450,
+          width: { xs: "100%", sm: 480, md: 560 },
           boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
           borderRadius: 4,
           p: 4,
@@ -81,18 +68,15 @@ const SkillCategoryCard = ({ icon, title, skills, iconColor, chipBg, chipColor, 
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
+            gridTemplateColumns: "1fr 1fr",
             gap: 2,
             width: "100%",
-            maxWidth: "100%",
           }}
         >
           {skills.map((skill) => (
             <Box
               key={skill}
               sx={{
-                width: fixedWidth,
-                height: fixedHeight,
                 backgroundColor: chipBg,
                 color: "#334155",
                 borderRadius: 2,
@@ -104,7 +88,7 @@ const SkillCategoryCard = ({ icon, title, skills, iconColor, chipBg, chipColor, 
                 justifyContent: "center",
                 boxShadow: 1,
                 transition: "0.2s",
-                padding: "0 8px",
+                padding: "14px",
                 '&:hover': {
                   boxShadow: 3,
                   transform: "translateY(-2px)",
@@ -123,39 +107,35 @@ const SkillCategoryCard = ({ icon, title, skills, iconColor, chipBg, chipColor, 
 const Skills = () => {
   const skillData = [
     {
-      icon: <Layers sx={{ width: 32, height: 32 }} />,
+      icon: <Layers />,
       title: "Frontend",
       skills: ["React", "JavaScript (ES6+)", "TypeScript", "HTML5", "CSS3", "MUI", "Axios"],
       iconColor: "#2563EB",
       chipBg: "#EFF6FF",
-      chipColor: "#2563EB",
       delay: 0.1,
     },
     {
-      icon: <Code sx={{ width: 32, height: 32 }} />,
+      icon: <Code />,
       title: "Backend",
       skills: ["#C", "ASP.NET", "Dapper", "REST API", "Node.js", "Express"],
       iconColor: "#7E22CE",
       chipBg: "#FAF5FF",
-      chipColor: "#7E22CE",
       delay: 0.2,
     },
     {
-      icon: <Database sx={{ width: 32, height: 32 }} />,
+      icon: <Database />,
       title: "Database",
       skills: ["SQL Server", "MongoDB", "Stored Procedures", "Query Optimization"],
       iconColor: "#16A34A",
       chipBg: "#F0FDF4",
-      chipColor: "#166534",
       delay: 0.3,
     },
     {
-      icon: <Wrench sx={{ width: 32, height: 32 }} />,
+      icon: <Wrench />,
       title: "Tools & Infrastructure",
       skills: ["Git", "TFS", "Visual Studio", "VS Code", "ExcelJS", "Postman"],
       iconColor: "#EA580C",
       chipBg: "#FFF7ED",
-      chipColor: "#EA580C",
       delay: 0.4,
     },
   ];
@@ -195,8 +175,8 @@ const Skills = () => {
           sx={{
             display: "flex",
             flexWrap: "wrap",
-            gap: 4,
             justifyContent: "center",
+            gap: 4,
           }}
         >
           {skillData.map((item) => (
@@ -210,7 +190,8 @@ const Skills = () => {
               mt: 10,
               px: 4,
               py: 4,
-              width: 1140,
+              width: "100%",
+              maxWidth: 1140,
               mx: "auto",
               background: "linear-gradient(135deg, #1d4ed8, #3b82f6)",
               borderRadius: 4,
@@ -222,7 +203,6 @@ const Skills = () => {
             <Typography
               sx={{
                 color: "#FFFFFF",
-                fontFamily: "ui-sans-serif, system-ui, sans-serif",
                 fontWeight: "bold",
                 fontSize: "30px",
                 mb: 2,
@@ -234,11 +214,11 @@ const Skills = () => {
               sx={{
                 color: "#FFFFFF",
                 fontSize: "18px",
-                fontFamily: "ui-sans-serif, system-ui, sans-serif",
                 lineHeight: 1.7,
               }}
             >
-              בעל תקשורת בין-אישית מצוינת וחשיבה אנליטית מפותחת. יכולת גבוהה בעבודה עצמאית ובצוות, עם ראייה מערכתית ותשומת לב לפרטים.
+              בעל תקשורת בין-אישית מצוינת וחשיבה אנליטית מפותחת. יכולת גבוהה בעבודה עצמאית ובצוות,
+              עם ראייה מערכתית ותשומת לב לפרטים.
             </Typography>
           </Box>
         </RevealAnimation>

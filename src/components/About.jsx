@@ -1,11 +1,5 @@
 import React from "react";
-import {
-    Box,
-    Typography,
-    Grid,
-    Container,
-    Card,
-} from "@mui/material";
+import { Box, Typography, Grid, Container, Card, } from "@mui/material";
 import TargetIcon from "@mui/icons-material/TrackChanges";
 import LightbulbIcon from "@mui/icons-material/Lightbulb";
 import FavoriteIcon from "@mui/icons-material/Favorite";
@@ -16,10 +10,10 @@ const CoreFeature = ({ icon, title, description, delay }) => (
     <RevealAnimation delay={delay} trigger={0.2}>
         <Card
             sx={{
-                width: "552px", // ✅ בדיוק כמו בדוגמה
+                width: { xs: "100%", md: "552px" },
                 minHeight: "108px",
                 display: "flex",
-                flexDirection: "row-reverse", // ✅ אייקון בצד ימין
+                flexDirection: "row-reverse",
                 alignItems: "center",
                 justifyContent: "flex-start",
                 p: "24px",
@@ -33,7 +27,7 @@ const CoreFeature = ({ icon, title, description, delay }) => (
                 },
             }}
         >
-            {/* ✅ צד שמאל – טקסט */}
+
             <Box sx={{ textAlign: "right", flex: 1 }}>
                 <Typography
                     component="h4"
@@ -42,7 +36,7 @@ const CoreFeature = ({ icon, title, description, delay }) => (
                         fontSize: "20px",
                         fontWeight: "bold",
                         fontFamily: "ui-sans-serif, system-ui, sans-serif",
-                        mb: 1, // 8px רווח
+                        mb: 1,
                     }}
                 >
                     {title}
@@ -60,12 +54,12 @@ const CoreFeature = ({ icon, title, description, delay }) => (
                     {description}
                 </Typography>
             </Box>
-            {/* ✅ צד ימין – אייקון */}
+
             <Box
                 sx={{
-                    backgroundColor: "#1D4ED8", // ✅ בדיוק לפי התמונות
-                    borderRadius: "8px", // .rounded-lg
-                    padding: "12px", // ✅ p-3
+                    backgroundColor: "#1D4ED8",
+                    borderRadius: "8px",
+                    padding: "12px",
                     color: "#ffffff",
                     width: "48px",
                     height: "48px",
@@ -73,12 +67,11 @@ const CoreFeature = ({ icon, title, description, delay }) => (
                     alignItems: "center",
                     justifyContent: "center",
                     flexShrink: 0,
-                    ml: 2.5, // רווח בין האייקון לטקסט
+                    ml: 2.5,
                 }}
             >
                 {icon}
             </Box>
-
         </Card>
     </RevealAnimation>
 );
@@ -95,7 +88,6 @@ const About = () => {
             }}
         >
             <Container maxWidth="lg">
-                {/* כותרת */}
                 <RevealAnimation>
                     <Box sx={{ textAlign: "center", mb: 6 }}>
                         <Box
@@ -132,15 +124,14 @@ const About = () => {
                     </Box>
                 </RevealAnimation>
 
-                {/* שני טורים */}
                 <Grid container spacing={5} alignItems="flex-start">
-                    {/* טור ימין - תקציר מקצועי */}
                     <Grid item xs={12} md={6}>
                         <Box
                             sx={{
                                 textAlign: "right",
-                                maxWidth: "550px", // ✅ רוחב זהה לתמונה שלך
-                                ml: "auto",        // שומר על יישור לימין גם במסכים רחבים
+                                width: { xs: "100%", md: "550px" }, 
+                                ml: "auto",
+                                px: { xs: 2, sm: 0 },
                             }}
                         >
                             <Typography
@@ -209,15 +200,16 @@ const About = () => {
                         </Box>
                     </Grid>
 
-                    {/* טור שמאל - כרטיסים */}
                     <Grid item xs={12} md={6}>
                         <Box
                             sx={{
                                 display: "flex",
                                 flexDirection: "column",
                                 gap: 3,
-                                maxWidth: "550px", // ✅ בדיוק הרוחב בתמונה
-                                mr: "auto", // שומר על יישור לצד שמאל במסכים גדולים
+                                width: "100%",
+                                maxWidth: 550,
+                                mr: "auto",
+                                px: { xs: 2, sm: 0 },
                             }}
                         >
                             <CoreFeature

@@ -1,17 +1,30 @@
 import React from "react";
 import { Box, Typography, Container, Card, Grid, IconButton } from "@mui/material";
-import { Mail, Phone, MapPin, MessageCircle, GraduationCap, Code, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, MessageCircle, Send } from 'lucide-react';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import RevealAnimation from "./RevealAnimation";
 
 const ContactDetailCard = ({ icon: Icon, title, detail, link, iconColor }) => {
+  const handleEmailClick = () => {
+    
+    window.location.href = "mailto:uri314el@gmail.com?subject=פנייה מהאתר Full Stack Developer&body=שלום אוריאל,";
+    setTimeout(() => {
+      window.open("https://mail.google.com/mail/?view=cm&fs=1&to=uri314el@gmail.com&su=פנייה מהאתר Full Stack Developer&body=שלום אוריאל,", "_blank");
+    }, 600);
+  };
+
+  const handleClick = () => {
+    if (title === "אימייל") {
+      handleEmailClick();
+    } else {
+      window.open(link, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <Card
-      component="a"
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
+      onClick={handleClick}
       sx={{
         p: 3,
         borderRadius: '1rem',
@@ -19,7 +32,7 @@ const ContactDetailCard = ({ icon: Icon, title, detail, link, iconColor }) => {
         transition: "0.3s",
         border: '1px solid #f3f4f6',
         textAlign: 'center',
-        height: '100%',
+        height: { xs: 'auto', md: '100%' },
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -44,7 +57,8 @@ const ContactDetailCard = ({ icon: Icon, title, detail, link, iconColor }) => {
           backgroundColor: iconColor,
           mb: 2,
           color: 'white',
-          boxShadow: "0 4px 8px rgba(0,0,0,0.2)"
+          boxShadow: "0 4px 8px rgba(0,0,0,0.2)",
+          flexShrink: 0
         }}
       >
         <Icon size={24} strokeWidth={2.5} />
@@ -70,7 +84,7 @@ const ContactDetailCard = ({ icon: Icon, title, detail, link, iconColor }) => {
   );
 };
 
-const ContactPage = () => {
+const Contact = () => {
 
   const contactData = [
     {
@@ -98,7 +112,7 @@ const ContactPage = () => {
       icon: Mail,
       title: "אימייל",
       detail: "uri314el@gmail.com",
-      link: "https://mail.google.com/mail/?view=cm&fs=1&to=uri314el@gmail.com",
+      link: "mailto:uri314el@gmail.com?subject=פנייה מהאתר Full Stack Developer&body=שלום אוריאל,",
       iconColor: "#2563EB",
     },
   ];
@@ -118,14 +132,12 @@ const ContactPage = () => {
     },
   ];
 
-
   return (
     <Box
       sx={{
         backgroundColor: "#f9fafb",
         py: { xs: 8, md: 12 },
         direction: 'rtl',
-        minHeight: '100vh',
         fontFamily: 'Inter, sans-serif'
       }}
     >
@@ -133,7 +145,7 @@ const ContactPage = () => {
         <Box sx={{ textAlign: "center", mb: 8 }}>
           <RevealAnimation>
             <Box display="flex" alignItems="center" justifyContent="center" gap={1}>
-              <GraduationCap size={32} color="#1D4ED8" strokeWidth={2.2} />
+              <Send size={32} color="#1D4ED8" strokeWidth={2.2} />
               <Typography
                 component="h2"
                 sx={{
@@ -146,13 +158,13 @@ const ContactPage = () => {
                   lineHeight: 1.2,
                 }}
               >
-                השכלה
+                צור קשר
               </Typography>
             </Box>
             <Box
               sx={{
                 borderBottom: "4px solid #1D4ED8",
-                width: 90,
+                width: { xs: 60, md: 90 },
                 mx: "auto",
                 mb: 6,
                 borderRadius: "2px",
@@ -160,8 +172,11 @@ const ContactPage = () => {
             />
           </RevealAnimation>
           <Typography
-            variant="h6"
-            sx={{ mt: 2, color: '#4b5563', fontWeight: 500, fontSize: { xs: '1rem', md: '1.25rem' } }}
+            sx={{
+              color: "#0F172A",
+              fontSize: "24px",
+              fontFamily: "ui-sans-serif, system-ui, sans-serif",
+            }}
           >
             מוזמנים ליצור קשר לשיחה על הזדמנויות ושיתופי פעולה
           </Typography>
@@ -188,10 +203,24 @@ const ContactPage = () => {
             mx: "auto",
           }}
         >
-          <Typography variant="h5" sx={{ fontWeight: 700, mb: 1.5 }}>
+          <Typography
+            sx={{
+              color: "#FFFFFF",
+              fontFamily: "ui-sans-serif, system-ui, sans-serif",
+              fontWeight: "bold",
+              fontSize: "30px",
+              mb: 2,
+            }}
+          >
             בואו נדבר!
           </Typography>
-          <Typography variant="body1" sx={{ opacity: 0.9 }}>
+          <Typography
+            sx={{
+              color: "#FFFFFF",
+              fontSize: "24px",
+              fontFamily: "ui-sans-serif, system-ui, sans-serif",
+            }}
+          >
             אני תמיד מעוניין בהזדמנויות חדשות, פרויקטים מעניינים ושיתופי פעולה. אשמח לשמוע ממך ולדון כיצד אוכל לתרום לארגון שלך.
           </Typography>
         </Box>
@@ -204,7 +233,7 @@ const ContactPage = () => {
           >
             ניתן למצוא אותי גם ב:
           </Typography>
-          <Box display="flex" justifyContent="center" gap={3}>
+          <Box display="flex" justifyContent="center" gap={3} flexWrap="wrap">
             {socialLinks.map((item) => (
               <IconButton
                 key={item.label}
@@ -233,10 +262,9 @@ const ContactPage = () => {
             ))}
           </Box>
         </Box>
-
       </Container>
     </Box>
   );
 };
 
-export default ContactPage;
+export default Contact;

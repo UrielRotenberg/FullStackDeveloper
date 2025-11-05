@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Typography, Container, Card, Chip, Dialog, DialogContent, Grid, } from "@mui/material";
+import { Box, Typography, Container, Card, Chip, Dialog, DialogContent, } from "@mui/material";
 import { GraduationCap, BookOpen, TrendingUp } from "lucide-react";
 import RevealAnimation from "./RevealAnimation";
 
@@ -17,7 +17,7 @@ const Education = () => {
         "React.js",
         "Node.js",
         "SQL",
-        "MongoDB"
+        "MongoDB",
     ];
 
     return (
@@ -56,7 +56,6 @@ const Education = () => {
                     />
                 </RevealAnimation>
 
-                {/* כרטיס לימודים */}
                 <RevealAnimation delay={0.2}>
                     <Card
                         sx={{
@@ -74,10 +73,14 @@ const Education = () => {
                             },
                         }}
                     >
-                        {/* כותרות */}
                         <Typography
                             variant="h5"
-                            sx={{ fontWeight: 700, color: "#0F172A", fontSize: "28px", mb: 0.8 }}
+                            sx={{
+                                fontWeight: 700,
+                                color: "#0F172A",
+                                fontSize: "28px",
+                                mb: 0.8,
+                            }}
                         >
                             Full Stack Development
                         </Typography>
@@ -103,144 +106,98 @@ const Education = () => {
                             משרד העבודה – אגף בכיר להכשרה מקצועית ופיתוח כוח אדם
                         </Typography>
 
-                        {/* כרטיסיות */}
                         <Box
                             sx={{
                                 display: "flex",
                                 flexDirection: { xs: "column", md: "row" },
-                                marginBottom: "auto",
                                 gap: 2,
                                 mb: 4,
                             }}
                         >
-                            {/* היקף לימוד */}
-                            <Box
-                                sx={{
-                                    flex: 1,
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "space-between",
-                                    backgroundColor: "#ffffff",
-                                    borderRadius: "14px",
-                                    boxShadow: "0 2px 6px rgba(0,0,0,0.04)",
-                                    px: 3,
-                                    py: 2,
-                                    direction: "rtl",
-                                }}
-                            >
-                                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                    <Box
-                                        sx={{
-                                            backgroundColor: "#1D4ED8",
-                                            borderRadius: "10px",
-                                            width: 48,
-                                            height: 48,
-                                            marginBottom: "auto",
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                        }}
-                                    >
-                                        <BookOpen size={24} color="#fff" />
+                            {[
+                                {
+                                    icon: <BookOpen size={24} color="#fff" />,
+                                    label: "היקף לימוד",
+                                    value: "400 שעות",
+                                    sub: "קורס ממשלתי מאושר",
+                                    img: "תעודת גמר.png",
+                                },
+                                {
+                                    icon: <TrendingUp size={24} color="#fff" />,
+                                    label: "ציון ממוצע",
+                                    value: "97",
+                                    sub: "",
+                                    img: "גליון ציונים.png",
+                                },
+                            ].map((item, idx) => (
+                                <Box
+                                    key={item.label}
+                                    sx={{
+                                        display: "flex",
+                                        alignItems: "center",
+                                        justifyContent: "space-between",
+                                        backgroundColor: "#ffffff",
+                                        borderRadius: "14px",
+                                        boxShadow: "0 2px 6px rgba(0,0,0,0.04)",
+                                        px: 3,
+                                        py: 2,
+                                        direction: "rtl",
+                                        width: { xs: "100%", md: "auto" },
+                                        minWidth: { md: "calc(50% - 8px)" },
+                                    }}
+                                >
+                                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                                        <Box
+                                            sx={{
+                                                backgroundColor: "#1D4ED8",
+                                                borderRadius: "10px",
+                                                width: 48,
+                                                height: 48,
+                                                marginBottom: "auto",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                            }}
+                                        >
+                                            {item.icon}
+                                        </Box>
+                                        <Box sx={{ textAlign: "right", pr: 2 }}>
+                                            <Typography sx={{ color: "#64748B", fontSize: "14px", fontWeight: 500, mb: 0.5 }}>
+                                                {item.label}
+                                            </Typography>
+                                            <Typography sx={{ color: item.label === "ציון ממוצע" ? "#1D4ED8" : "#0F172A", fontSize: item.label === "ציון ממוצע" ? "36px" : "20px", fontWeight: 700 }}>
+                                                {item.value}
+                                            </Typography>
+                                            {item.sub && (
+                                                <Typography sx={{ color: "#475569", fontSize: "14px" }}>
+                                                    {item.sub}
+                                                </Typography>
+                                            )}
+                                        </Box>
                                     </Box>
-                                    <Box sx={{ textAlign: "right", pr: 2 }}>
-                                        <Typography sx={{ color: "#64748B", fontSize: "14px", fontWeight: 500, mb: 0.5 }}>
-                                            היקף לימוד
-                                        </Typography>
-                                        <Typography sx={{ color: "#0F172A", fontSize: "20px", fontWeight: 700 }}>
-                                            400 שעות
-                                        </Typography>
-                                        <Typography sx={{ color: "#475569", fontSize: "14px" }}>
-                                            קורס ממשלתי מאושר
-                                        </Typography>
-                                    </Box>
-                                </Box>
 
-                                {/* תעודת גמר */}
-                                <Box textAlign="center">
-                                    <Box
-                                        component="img"
-                                        src="/public/תעודת גמר.png"
-                                        alt="תעודת גמר"
-                                        onClick={() => handleOpenImage("/public/תעודת גמר.png")}
-                                        sx={{
-                                            width: 120,
-                                            height: "auto",
-                                            cursor: "pointer",
-                                            borderRadius: 2,
-                                            boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                                            transition: "0.3s",
-                                            ml: 2,
-                                            "&:hover": { transform: "scale(1.03)" },
-                                        }}
-                                    />
-                                </Box>
-                            </Box>
-
-                            {/* ציון ממוצע */}
-                            <Box
-                                sx={{
-                                    flex: 1,
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: "space-between",
-                                    backgroundColor: "#ffffff",
-                                    borderRadius: "12px",
-                                    boxShadow: "0 2px 6px rgba(0,0,0,0.04)",
-                                    px: 3,
-                                    py: 2,
-                                    direction: "rtl",
-                                }}
-                            >
-                                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                    <Box
-                                        sx={{
-                                            backgroundColor: "#1D4ED8",
-                                            borderRadius: "10px",
-                                            marginBottom: "auto",
-                                            padding: "12px",
-                                            width: 48,
-                                            height: 48,
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center",
-                                        }}
-                                    >
-                                        <TrendingUp size={24} color="#fff" />
-                                    </Box>
-                                    <Box sx={{ textAlign: "right", pr: 2 }}>
-                                        <Typography sx={{ color: "#64748B", fontSize: "14px", fontWeight: 500, mb: 0.5 }}>
-                                            ציון ממוצע
-                                        </Typography>
-                                        <Typography sx={{ color: "#1D4ED8", fontSize: "36px", fontWeight: 700 }}>
-                                            97
-                                        </Typography>
+                                    <Box textAlign="center">
+                                        <Box
+                                            component="img"
+                                            src={`${import.meta.env.BASE_URL}${item.img}`}
+                                            alt={item.label}
+                                            onClick={() => handleOpenImage(`${import.meta.env.BASE_URL}${item.img}`)}
+                                            sx={{
+                                                width: 120,
+                                                height: "auto",
+                                                cursor: "pointer",
+                                                borderRadius: 2,
+                                                boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+                                                transition: "0.3s",
+                                                ml: 2,
+                                                "&:hover": { transform: "scale(1.03)" },
+                                            }}
+                                        />
                                     </Box>
                                 </Box>
-
-                                {/* גיליון ציונים */}
-                                <Box textAlign="center">
-                                    <Box
-                                        component="img"
-                                        src="/public/גליון ציונים.png"
-                                        alt="גליון ציונים"
-                                        onClick={() => handleOpenImage("/public/גליון ציונים.png")}
-                                        sx={{
-                                            width: 120,
-                                            height: "auto",
-                                            cursor: "pointer",
-                                            borderRadius: 2,
-                                            boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-                                            transition: "0.3s",
-                                            ml: 2,
-                                            "&:hover": { transform: "scale(1.03)" },
-                                        }}
-                                    />
-                                </Box>
-                            </Box>
+                            ))}
                         </Box>
 
-                        {/* טכנולוגיות */}
                         <Typography
                             variant="h6"
                             sx={{
@@ -268,13 +225,15 @@ const Education = () => {
                                         fontSize: "0.9rem",
                                         px: 1.5,
                                         transition: "all 0.3s ease",
-                                        "&:hover": { backgroundColor: "#1D4ED8", color: "#ffffff" },
+                                        "&:hover": {
+                                            backgroundColor: "#1D4ED8",
+                                            color: "#ffffff",
+                                        },
                                     }}
                                 />
                             ))}
                         </Box>
 
-                        {/* תצוגת תעודה מוגדלת */}
                         <Dialog open={!!openImage} onClose={handleCloseImage} maxWidth="md">
                             <DialogContent sx={{ p: 0 }}>
                                 <Box

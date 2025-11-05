@@ -6,17 +6,20 @@ const Footer = () => {
     <Box
       component="footer"
       sx={{
-        py: 3,
-        background: "linear-gradient(145deg, #0E1F40, #102850)",
-        color: "white",
+        py: { xs: 4, md: 6 },
+        background: "#0F172A",
+        color: "#94A3B8",
         textAlign: "center",
-        borderTop: "4px solid #1976D2",
-        mt: 6,
+        fontFamily: "ui-sans-serif, system-ui, sans-serif",
       }}
     >
       <Container maxWidth="lg">
-        <Typography variant="body2" sx={{ fontWeight: 500 }}>
-          © {new Date().getFullYear()} אוריאל רוטנברג. כל הזכויות שמורות.
+        <Typography
+          sx={{
+            fontSize: { xs: "14px", md: "16px" },
+          }}
+        >
+          כל הזכויות שמורות, אוריאל רוטנברג 2025 ©
         </Typography>
       </Container>
     </Box>

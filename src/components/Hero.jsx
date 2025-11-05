@@ -7,7 +7,6 @@ import { Link as ScrollLink } from "react-scroll";
 import EmailIcon from "@mui/icons-material/Email";
 
 const Hero = () => {
-    // גלילה חלקה למקטע צור קשר
     const handleScrollToContact = (e) => {
         e.preventDefault();
         const section = document.querySelector("#contact");
@@ -31,7 +30,6 @@ const Hero = () => {
                 paddingX: 2,
             }}
         >
-            {/* לוגו */}
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -42,7 +40,6 @@ const Hero = () => {
                         width: { xs: 110, sm: 140, md: 170 },
                         height: { xs: 110, sm: 140, md: 170 },
                         mx: "auto",
-                        // mb: 3,
                     }}
                 >
                     <img
@@ -53,7 +50,6 @@ const Hero = () => {
                 </Box>
             </motion.div>
 
-            {/* כותרת גדולה בסגנון מקצועי */}
             <Typography
                 variant="h2"
                 sx={{
@@ -64,7 +60,6 @@ const Hero = () => {
                     mb: 1,
                 }}
             >
-                {/* Full Stack Developer */}
                 אוריאל רוטנברג
             </Typography>
 
@@ -77,11 +72,9 @@ const Hero = () => {
                     mb: 4,
                 }}
             >
-                {/* Turning vision into code */}
                 Full Stack Developer
             </Typography>
 
-            {/* טכנולוגיות */}
             <Box
                 sx={{
                     display: "flex",
@@ -114,7 +107,6 @@ const Hero = () => {
                 ))}
             </Box>
 
-            {/* תיאור מקצועי מדויק */}
             <Typography
                 variant="body1"
                 sx={{
@@ -122,8 +114,8 @@ const Hero = () => {
                     mx: "auto",
                     mt: 4,
                     mb: 3,
-                    color: "#475569", // צבע אפור-כחלחל עדין
-                    fontSize: { xs: "18px", md: "24px" }, // גודל מדויק לפי התמונה
+                    color: "#475569", 
+                    fontSize: { xs: "18px", md: "24px" },
                     fontFamily: "system-ui, -apple-system, Segoe UI, Roboto, sans-serif",
                     lineHeight: 1.6,
                     textAlign: "center",
@@ -134,23 +126,21 @@ const Hero = () => {
                 משלב חשיבה מערכתית עם תשומת לב לפרטים ליצירת פתרונות איכותיים.
             </Typography>
 
-            {/* כפתורים */}
             <Box
                 sx={{
                     display: "flex",
                     flexDirection: { xs: "column", sm: "row" },
                     justifyContent: "center",
                     alignItems: "center",
-                    gap: 4, // בדיוק כמו gap-4
+                    gap: 4,
                     mt: 4,
                 }}
             >
-                {/* צור קשר */}
                 <ScrollLink
                     to="contact"
                     smooth={true}
                     duration={600}
-                    offset={-80} // מרווח קטן כדי שלא יחתוך את תחילת הסקשן
+                    offset={-80}
                 >
                     <Button
                         startIcon={<EmailIcon />}
@@ -168,7 +158,6 @@ const Hero = () => {
                     </Button>
                 </ScrollLink>
 
-                {/* הורד קורות חיים */}
                 <Button
                     variant="outlined"
                     href={`${import.meta.env.BASE_URL}קורות חיים - אוריאל רוטנברג.pdf`}
