@@ -2,14 +2,51 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/FullStackDeveloper/ur-logo.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/FullStackDeveloper/ur-logo.png" />
     <link rel="apple-touch-icon" href="/FullStackDeveloper/ur-logo.png" />
+
+    <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Uriel Rotenberg | Full Stack Developer</title>
+
+    <!-- ================= SECURITY HEADERS ================= -->
+    <!-- 1️⃣ Content Security Policy -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="
+        default-src 'self';
+        img-src 'self' data: https:;
+        script-src 'self';
+        style-src 'self' 'unsafe-inline';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+      "
+    />
+
+    <!-- 2️⃣ X-Frame-Options -->
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+
+    <!-- 3️⃣ X-Content-Type-Options -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
+    <!-- 4️⃣ Referrer-Policy -->
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+
+    <!-- 5️⃣ Permissions-Policy -->
+    <meta
+      http-equiv="Permissions-Policy"
+      content="camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    />
+    <!-- ===================================================== -->
     <script type="module" crossorigin src="/FullStackDeveloper/assets/index-BjyTa6NN.js"></script>
     <link rel="stylesheet" crossorigin href="/FullStackDeveloper/assets/index-Bnh_wYXo.css">
   </head>
+
   <body>
     <div id="root"></div>
   </body>
