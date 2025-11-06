@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>הצהרת נגישות</title>
+
+    <!-- פונט Heebo -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Heebo", Arial, sans-serif;
+        background-color: #f9fafb;
+        color: #0f172a;
+        margin: 0;
+        padding: 0;
+        direction: rtl;
+        text-align: right;
+      }
+
+      main {
+        max-width: 1000px;
+        margin: auto;
+        padding: 3rem 1.5rem;
+      }
+
+      h1 {
+        text-align: center;
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: #0f172a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+      }
+
+      h1 .material-icons-outlined {
+        font-size: 2.8rem;
+        color: #1d4ed8;
+      }
+
+      .underline {
+        border-bottom: 4px solid #1d4ed8;
+        width: 90px;
+        border-radius: 2px;
+        margin: 0.8rem auto 2rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+        line-height: 1.9;
+        margin-bottom: 1.2rem;
+        color: #0f172a;
+      }
+
+      .contact-section {
+        background-color: #ffffff;
+        border-radius: 1rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        margin-top: 2.5rem;
+      }
+
+      .contact-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-top: 1.5rem;
+      }
+
+      .card {
+        background-color: white;
+        border-radius: 1rem;
+        border: 1px solid #f3f4f6;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        width: 280px;
+        text-align: center;
+        padding: 1.5rem;
+        transition: 0.3s;
+        cursor: pointer;
+        text-decoration: none;
+      }
+
+      .card:hover,
+      .card:focus {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        outline: none;
+      }
+
+      .icon-circle {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin: 0 auto 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+
+      .mail {
+        background-color: #2563eb;
+      }
+
+      .phone {
+        background-color: #16a34a;
+      }
+
+      .whatsapp {
+        background-color: #22c55e;
+      }
+
+      .icon-circle svg {
+        width: 28px;
+        height: 28px;
+        stroke: white;
+        stroke-width: 2.5;
+      }
+
+      .card-title {
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      .card-detail {
+        color: #1d4ed8;
+        font-weight: 600;
+        font-size: 1rem;
+        direction: ltr;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 3rem;
+        padding-top: 1rem;
+        border-top: 1px solid #d1d5db;
+        font-size: 1rem;
+        color: #475569;
+      }
+
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 2rem;
+        }
+        .card {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <main>
+      <h1>
+        <span class="material-icons-outlined">accessibility_new</span>
+        הצהרת נגישות
+      </h1>
+
+      <div class="underline"></div>
+
+      <p>
+        אתר זה מופעל על ידי <strong>אוריאל רוטנברג</strong> ונועד להיות נגיש לכלל המשתמשים, לרבות אנשים עם מוגבלות.
+        האתר פותח בהתאם לחוק הישראלי 5568, המבוסס על תקן בינלאומי WCAG 2.0 ברמה AA.
+      </p>
+
+      <p>
+        אנו פועלים באופן שוטף לשפר את הנגישות ולהבטיח חוויית שימוש נוחה לכל אדם.
+        במידה שנתקלתם בקושי כלשהו – נשמח לשמוע מכם על מנת לסייע ולתקן.
+        ניתן לפנות אלינו בנושא <strong>נגישות האתר בלבד</strong> באמצעים הבאים:
+      </p>
+
+      <section class="contact-section">
+        <div class="contact-grid">
+          <!-- אימייל -->
+          <div
+            class="card"
+            onclick="handleEmailClick()"
+            role="button"
+            tabindex="0"
+            aria-label="שליחת דוא״ל בנושא נגישות"
+            onkeypress="if(event.key==='Enter'){handleEmailClick();}"
+          >
+            <div class="icon-circle mail">
+              <!-- Lucide Mail -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <rect
+                  x="2"
+                  y="4"
+                  width="20"
+                  height="16"
+                  rx="2"
+                  ry="2"
+                  stroke="white"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M22 6 12 13 2 6"
+                />
+              </svg>
+            </div>
+            <div class="card-title">אימייל</div>
+            <div class="card-detail">uri314el@gmail.com</div>
+          </div>
+
+          <!-- טלפון -->
+          <a class="card" href="tel:0534305167" aria-label="חיוג לטלפון של אוריאל רוטנברג">
+            <div class="icon-circle phone">
+              <!-- Lucide Phone -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.1 4.18 2 2 0 014.1 2h3a2 2 0 012 1.72c.12.81.37 1.6.72 2.34a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.74-1.27a2 2 0 012.11-.45c.74.35 1.53.6 2.34.72A2 2 0 0122 16.92z"
+                />
+              </svg>
+            </div>
+            <div class="card-title">טלפון</div>
+            <div class="card-detail">053-4305167</div>
+          </a>
+
+          <!-- וואטסאפ -->
+          <a
+            class="card"
+            href="https://wa.me/972534305167?text=שלום%20אוריאל,%20אני%20פונה%20אליך%20בנושא%20נגישות%20באתר%20Full%20Stack%20Developer"
+            target="_blank"
+            rel="noopener"
+            aria-label="שליחת הודעת וואטסאפ לאוריאל רוטנברג בנושא נגישות"
+          >
+            <div class="icon-circle whatsapp">
+              <!-- Lucide MessageCircle -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8z"
+                />
+              </svg>
+            </div>
+            <div class="card-title">וואטסאפ</div>
+            <div class="card-detail">053-4305167</div>
+          </a>
+        </div>
+      </section>
+
+      <footer>
+        אתר נגיש לפי תקן ישראלי 5568 | כל הזכויות שמורות © אוריאל רוטנברג 2025
+      </footer>
+    </main>
+
+    <script>
+      // שליחת מייל בנושא נגישות בלבד
+      function handleEmailClick() {
+        window.location.href =
+          "mailto:uri314el@gmail.com?subject=פנייה בנושא נגישות באתר Full Stack Developer&body=שלום אוריאל,";
+        setTimeout(() => {
+          window.open(
+            "https://mail.google.com/mail/?view=cm&fs=1&to=uri314el@gmail.com&su=פנייה בנושא נגישות באתר Full Stack Developer&body=שלום אוריאל,",
+            "_blank"
+          );
+        }, 600);
+      }
+    </script>
+  </body>
+</html>
