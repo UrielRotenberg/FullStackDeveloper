@@ -7,7 +7,7 @@ import RevealAnimation from "./RevealAnimation";
 
 const ContactDetailCard = ({ icon: Icon, title, detail, link, iconColor }) => {
   const handleEmailClick = () => {
-    
+
     window.location.href = "mailto:uri314el@gmail.com?subject=פנייה מהאתר Full Stack Developer&body=שלום אוריאל,";
     setTimeout(() => {
       window.open("https://mail.google.com/mail/?view=cm&fs=1&to=uri314el@gmail.com&su=פנייה מהאתר Full Stack Developer&body=שלום אוריאל,", "_blank");
@@ -98,7 +98,7 @@ const Contact = () => {
       icon: MessageCircle,
       title: "וואטסאפ",
       detail: "053-430-5167",
-      link: "https://wa.me/972534305167",
+      link: "https://wa.me/972534305167?text=שלום%20אוריאל,%20הגעתי%20מהאתר%20שלך%20Full%20Stack%20Developer",
       iconColor: "#22C55E",
     },
     {
