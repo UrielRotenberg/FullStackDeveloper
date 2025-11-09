@@ -132,7 +132,7 @@ const Accessibility = () => {
           >
             <MessageCircle size={22} />
             <a
-              href="https://wa.me/972534305167?text=שלום%20אוריאל,%20הגעתי%20מהאתר%20שלך%20Full%20Stack%20Developer"
+              href="https://wa.me/972534305167?text=שלום%20אוריאל,%20הגעתי%20מהאתר%20שלך%20Full%20Stack%20Developer%20בנושא%20נגישות"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "#22C55E", textDecoration: "none" }}
