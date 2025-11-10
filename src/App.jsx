@@ -11,13 +11,18 @@ import Education from "./components/Education";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import Accessibility from "./components/Accessibility";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <ParallaxProvider>
-        <Router basename={import.meta.env.MODE === "production" ? "/FullStackDeveloper" : "/"}>
+        <Router
+          basename={
+            import.meta.env.MODE === "production" ? "/FullStackDeveloper" : "/"
+          }
+        >
           <Box dir="rtl" sx={{ overflowX: "hidden" }}>
             <Routes>
               <Route
@@ -33,6 +38,16 @@ function App() {
                     <Box id="contact">
                       <Contact />
                     </Box>
+                    <Footer />
+                  </>
+                }
+              />
+              <Route
+                path="/accessibility"
+                element={
+                  <>
+                    <Header />
+                    <Accessibility />
                     <Footer />
                   </>
                 }
